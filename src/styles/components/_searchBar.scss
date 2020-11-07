@@ -24,14 +24,18 @@
       .search-bar__button {
         background-color: transparent;
         border: none;
+        outline: none;
         cursor: pointer;
 
         .search-bar__icon { 
-          width: 15px;
+          position: relative;
 
           &--search{
-            position: relative;
-            top: 3px;
+            width: 13px;
+            top: 2px;
+          }
+          &--reset {
+            width: 10px;
           }
         } 
       }
