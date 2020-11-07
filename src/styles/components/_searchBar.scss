@@ -1,0 +1,23 @@
+.container {
+  padding: 16px;
+
+  &.container__search-bar {
+    margin-top: 60px;
+  }
+
+  .search-bar__form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+
+    .search-bar__input-container {
+      display: flex;
+
+      .search-bar__input {
+        outline: none;
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
