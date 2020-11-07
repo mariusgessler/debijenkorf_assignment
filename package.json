@@ -13,7 +13,8 @@
     "@storybook/react": "5.2.6",
     "babel-loader": "8.0.6",
     "concurrently": "3.5.1",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-test-renderer": "^17.0.1"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"canned -p 5000 ./api/\"",
