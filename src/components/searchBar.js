@@ -5,16 +5,20 @@ import { ReactComponent as SearchIcon } from '../assets/icons/search.svg';
 
 
 const SearchBar = () => {
-  return (<div className="container container__search-bar">
-    <form className="search-bar__form">
-      <div className="search-bar__input-container">
-        <input className="search-bar__input" id="searchInput" type="search" placeholder="Zoeken" name="searchInput" aria-label="Search input" autoComplete="off"></input>
-        <button className="search-bar__button search-bar__button--search" id="searchButton" value="Search" type="submit">
-          <SearchIcon class="search-bar__icon search-bar__icon--search" title="Search"></SearchIcon>
-        </button>
+  return (
+  <div className="search-bar">
+    <div className="search-bar__container">
+        <form className="search-bar__form">
+          <div className="search-bar__input-container">
+            <input className="search-bar__input" id="searchInput" type="search" placeholder="Zoeken" name="searchInput" aria-label="Search input" autoComplete="off"></input>
+            <button className="search-bar__button search-bar__button--search" id="searchButton" value="Search" type="submit">
+              <SearchIcon className="search-bar__icon search-bar__icon--search" title="Search"></SearchIcon>
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>)
+  </div>
+ )
 } 
 
 export default SearchBar;
