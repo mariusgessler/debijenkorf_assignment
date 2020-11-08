@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import useSuggestionsApi from '../hooks/useSuggestionsApi'
 import { v4 as uuid } from 'uuid';
 import { ReactComponent as ApplyIcon } from '../assets/icons/diagonal-arrow.svg';
 
-const SearchSuggestions = ({query, setQuery}) => {
-  const [{data, loading, error}, doFetch] = useSuggestionsApi();
+const SearchSuggestions = ({active, query, setQuery}) => {
+  const [{ data }, doFetch] = useSuggestionsApi(); // Todo: Render loading and error state
   const { suggestions } = data;
 
   useEffect(() => {
-    const encodedURI = encodeURI(`http://localhost:3000/search?q=${query}`)
-    doFetch(encodedURI)
+    const encodedURI = encodeURI(`http://localhost:3000/search?q=${query}`);
+    doFetch(encodedURI);
   }, [doFetch, query]);
 
   return (
-  <div className="search-suggestions">
     <div className="search-suggestions__container">
       <ul className="search-suggestions__list">
         {suggestions.map((suggestion) => {
@@ -24,7 +23,7 @@ const SearchSuggestions = ({query, setQuery}) => {
               ? <b key={uuid()} className="highlight-char">{char}</b>
               : char
               )}
-              {` (${suggestion.nrResults})`}
+              {`(${suggestion.nrResults})`}
             </span>
             <button className="search-bar__button search-bar__button--apply" value="Apply" onClick={() => setQuery(suggestion.searchterm)}>
               <ApplyIcon className="search-bar__icon search-bar__icon--apply" title="Apply"></ApplyIcon>
@@ -34,7 +33,6 @@ const SearchSuggestions = ({query, setQuery}) => {
         })}
       </ul>
     </div>
-  </div>
  );
 };
 

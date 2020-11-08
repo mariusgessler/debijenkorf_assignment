@@ -10,7 +10,6 @@ const useSuggestionsApi = () => {
     const fetchData = () => {
       setError(false);
       setLoading(true);
-      
       if(url) {
         fetch(url).then((res) => {
           if (res.status !== 200) {
