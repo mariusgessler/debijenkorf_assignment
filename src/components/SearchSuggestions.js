@@ -3,7 +3,7 @@ import useSuggestionsApi from '../hooks/useSuggestionsApi'
 import { v4 as uuid } from 'uuid';
 import { ReactComponent as ApplyIcon } from '../assets/icons/diagonal-arrow.svg';
 
-const SearchSuggestions = ({active, query, setQuery}) => {
+const SearchSuggestions = ({ query, setQuery}) => {
   const [{ data }, doFetch] = useSuggestionsApi(); // Todo: Render loading and error state
   const { suggestions } = data;
 

@@ -13,23 +13,23 @@ const useSuggestionsApi = () => {
       if(url) {
         fetch(url).then((res) => {
           if (res.status !== 200) {
-            console.error(`It seems there was an problem fetching the result. Status Code: ${res.status}`)
+            console.error(`It seems there was an problem fetching the result. Status Code: ${res.status}`);
             return;
-          }
+          };
           res.json().then((fetchedData) => {
-            setData(fetchedData)
-          })
+            setData(fetchedData);
+          });
         }).catch(() => {
-          setError(true)
-        })
+          setError(true);
+        });
         setLoading(false);
       };
-      }
+    };
 
     fetchData();
   }, [url]);
  
-  return [{ data, loading, error }, setUrl];
+  return [{ data, loading, error }, setUrl]
 }
 
 export default useSuggestionsApi;

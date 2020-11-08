@@ -19,7 +19,6 @@ const SearchBar = () => {
   useEffect(() => {
     if (input.length >= 2) {
       debounceSearchTerm(input);
-      console.log('here');
     } else {
       setSearchTerm('');
     };
