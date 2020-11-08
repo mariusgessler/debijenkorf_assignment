@@ -1,51 +1,110 @@
-.search-bar {
-  padding: 16px;
+.search-component {
+  margin: 0 auto;
+  max-width: 400px;
+  height: 100%;
 
-  &__container {
-    margin-top: 60px;
+  .search-bar {
+    position: relative;
+    background-color: white;
+    margin: 0 auto;
+
+    &__container {
+      margin-top: 60px;
+    }
+  
+    &__form {
+      width: 100%;
+
+      &.active {
+        border: 1px solid darkgray;
+      }
+  
+      &.inactive {
+        border: 1px solid lightgray;
+      }
+  
+      .search-bar__input-container {
+        display: flex;
+        padding: 5px 10px;
+        border-radius: 4px;
+  
+        .search-bar__input {
+          outline: none;
+          border: none;
+          width: 100%;
+        }
+      }
+    }
   }
 
-  &__form {
-    width: 100%;
-    max-width: 400px;
+  .search-bar__button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 100%;
+
+    .search-bar__icon { 
+      position: relative;
+
+      &--search{
+        width: 13px;
+        top: 2px;
+      }
+      &--reset {
+        width: 10px;
+      }
+      &--apply{
+        width: 10px;
+      }
+    } 
+  }
+
+  .search-suggestions {
+    position: relative;
     margin: 0 auto;
-    border-radius: 4px;
-    transition: box-shadow 0.5s ease-in-out;
+    max-height: 0;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
 
     &.active {
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      border: 0.5px solid lightgray;
+      border-top: none;
+      max-height: 600px;
+      transition: max-height 0.3s ease-in;
     }
 
-    .search-bar__input-container {
+    .search-suggestions__list-item {
       display: flex;
-      padding: 5px 10px;
-      border: 1px solid lightgray;
-      border-radius: 4px;
+      justify-content: space-between;
+      border-bottom: 0.5px solid lightgray;
+      padding: 8px;
+      span {
+        font-size: 0.8rem;
+        font-weight: 200;
 
-      .search-bar__input {
-        outline: none;
-        border: none;
-        width: 100%;
+        b {
+          font-weight: 800;
+        }
       }
+    }
+  }
 
-      .search-bar__button {
-        background-color: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    height: 100%;
+    width: 100%;
+    background-color: #F4F4F4;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 
-        .search-bar__icon { 
-          position: relative;
-
-          &--search{
-            width: 13px;
-            top: 2px;
-          }
-          &--reset {
-            width: 10px;
-          }
-        } 
-      }
+    &.active {
+      opacity: 1;
     }
   }
 }
