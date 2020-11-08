@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/react-hooks": "^3.4.2",
     "canned": "0.3.12",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "eslint-config-airbnb": "^18.2.1",
+    "fetch-mock": "^9.10.7",
     "node-sass": "4.14.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -23,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "lint": "eslint ."
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
