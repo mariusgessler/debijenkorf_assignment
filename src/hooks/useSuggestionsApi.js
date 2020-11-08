@@ -10,21 +10,23 @@ const useSuggestionsApi = () => {
     const fetchData = () => {
       setError(false);
       setLoading(true);
-
-      fetch(url).then((res) => {
-        if (res.status !== 200) {
-          console.error(`It seems there was an problem fetching the result. Status Code: ${res.status}`)
-          return;
-        }
-        res.json().then((fetchedData) => {
-          setData(fetchedData)
+      
+      if(url) {
+        fetch(url).then((res) => {
+          if (res.status !== 200) {
+            console.error(`It seems there was an problem fetching the result. Status Code: ${res.status}`)
+            return;
+          }
+          res.json().then((fetchedData) => {
+            setData(fetchedData)
+          })
+        }).catch(() => {
+          setError(true)
         })
-      }).catch(() => {
-        setError(true)
-      })
-      setLoading(false);
-    };
- 
+        setLoading(false);
+      };
+      }
+
     fetchData();
   }, [url]);
  
