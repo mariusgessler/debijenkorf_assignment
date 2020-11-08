@@ -8,21 +8,23 @@ const SearchSuggestions = ({query, setQuery}) => {
   const { suggestions } = data;
 
   useEffect(() => {
-    doFetch(`http://localhost:3000/search?q=${query}`)
+    const encodedURI = encodeURI(`http://localhost:3000/search?q=${query}`)
+    doFetch(encodedURI)
   }, [doFetch, query]);
 
   return (
-  <div className="search-component search-suggestions">
-    <div className="search-suggestion__container">
-      <ul className="search-suggestion__list">
+  <div className="search-suggestions">
+    <div className="search-suggestions__container">
+      <ul className="search-suggestions__list">
         {suggestions.map((suggestion) => {
           return (
-          <li className="search-suggestion__list" key={uuid()}>
-            <span className="search-suggestion__list-item">
+          <li className="search-suggestions__list-item" key={uuid()}>
+            <span>
               {[...suggestion.searchterm].map((char) => query.includes(char) 
-              ? <b className="highlight-char">{char}</b>
+              ? <b key={uuid()} className="highlight-char">{char}</b>
               : char
               )}
+              {` (${suggestion.nrResults})`}
             </span>
             <button className="search-bar__button search-bar__button--apply" value="Apply" onClick={() => setQuery(suggestion.searchterm)}>
               <ApplyIcon className="search-bar__icon search-bar__icon--apply" title="Apply"></ApplyIcon>
