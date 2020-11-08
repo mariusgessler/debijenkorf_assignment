@@ -19,22 +19,26 @@ const SearchBar = () => {
   useEffect(() => {
     if (input.length >= 2) {
       debounceSearchTerm(input);
+      console.log('here');
     } else {
-      setSearchTerm('')
+      setSearchTerm('');
     };
   }, [debounceSearchTerm, input]);
 
   return (
     <div className="search-component">
-      <div className="search-bar">
+      <div className={`overlay ${active ? 'active' : ''}`} onClick={() => setActive(false)}></div>
+      <div className={`search-bar ${active ? 'active' : ''}`}>
         <div className="search-bar__container">
-          <form className={`search-bar__form ${active && !searchTerm ? 'active' : 'inactive'} ${input}`} onSubmit={handleSubmit} >
+          <form className={`search-bar__form ${active && !searchTerm ? 'active' : 'inactive'}`} onSubmit={handleSubmit} >
             <div className="search-bar__input-container">
-              <input className="search-bar__input" id="searchInput" type="search" placeholder="Zoeken" name="searchInput" aria-label="Search input" autoComplete="off" value={input} onChange={(e) => setInput(e.target.value)} onFocus={() => setActive(true)} onBlur={() =>  setActive(false)}></input>
-              {input && <button className="search-bar__button search-bar__button--reset" value="Reset" onClick={() => {
-                setInput('') 
-                setActive(false)}}>
-                <CloseIcon className="search-bar__icon search-bar__icon--reset" title="Reset search" ></CloseIcon>
+              <input className="search-bar__input" id="searchInput" type="search" placeholder="Zoeken" name="searchInput" aria-label="Search input" autoComplete="off" value={input} onChange={(e) => setInput(e.target.value)} onFocus={() => setActive(true)}></input>
+              {input && <button className="search-bar__button search-bar__button--reset" value="Reset" 
+              onClick={() => {
+                setInput('');
+                setActive(false);
+                }}>
+                <CloseIcon className="search-bar__icon search-bar__icon--reset" title="Reset search"></CloseIcon>
               </button> }
               <button className="search-bar__button search-bar__button--search" value="Search" type="submit">
                 <SearchIcon className="search-bar__icon search-bar__icon--search" title="Search"></SearchIcon>
@@ -43,8 +47,9 @@ const SearchBar = () => {
           </form>
         </div>
       </div>
-      {searchTerm && <SearchSuggestions query={searchTerm} setQuery={setInput}/> 
-        }
+      <div className={`search-suggestions ${active && searchTerm ? 'active' : ''}`}>
+        <SearchSuggestions className="example" query={searchTerm} setQuery={setInput} />
+      </div>
     </div>
  );
 };
