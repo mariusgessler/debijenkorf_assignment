@@ -22,7 +22,7 @@ If you are not familiar with Create React App you can find an up to date guide [
 
 ## Folder Structure
 
-The initial project structure looks like this:
+My updated folder structure looks as follow:
 
 ```
 frontend-assignment/
@@ -46,6 +46,26 @@ frontend-assignment/
     index.css
     index.js
     serviceWorker.js
+    components/
+      SearchBar.js
+      SearchBar.stories.js
+      SearchBar.test.js
+      SearchSuggestions.js
+      SearchSuggestions.stories.js
+      SearchSuggestions.test.js
+    hooks/
+      useSuggestionsApi.js
+    assets/
+      icons/
+        close.svg
+        diagonal-arrow.svg
+        apply.svg
+    styles/
+      components/
+        _searchBar.scss
+        _searchSuggestions.scss
+      index.scss
+      _base.scss
   .gitignore
   package.json
   README.md
