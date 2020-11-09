@@ -1,4 +1,6 @@
 <!-- omit in toc -->
+This is my (Marius Gessler) submission for the Frontend Dev assignment for de Bijenkorf.
+
 ## de Bijenkorf Frontend Dev assignment
 
 This project allows de Bijenkorf to asses potential frontend candidates with real, working code.
