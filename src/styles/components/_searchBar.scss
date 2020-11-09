@@ -61,38 +61,6 @@
     } 
   }
 
-  .search-suggestions {
-    position: relative;
-    margin: 0 auto;
-    max-height: 0;
-    width: 100%;
-    background-color: white;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-
-    &.active {
-      border: 0.5px solid lightgray;
-      border-top: none;
-      max-height: 600px;
-      transition: max-height 0.3s ease-in;
-    }
-
-    .search-suggestions__list-item {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 0.5px solid lightgray;
-      padding: 8px;
-      span {
-        font-size: 0.8rem;
-        font-weight: 200;
-
-        b {
-          font-weight: 800;
-        }
-      }
-    }
-  }
-
   .overlay {
     position: absolute;
     top: 0;
