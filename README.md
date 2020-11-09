@@ -22,7 +22,7 @@ If you are not familiar with Create React App you can find an up to date guide [
 
 ## Folder Structure
 
-My updated folder structure looks as follow:
+My updated folder structure looks as follows:
 
 ```
 frontend-assignment/
