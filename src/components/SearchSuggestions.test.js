@@ -30,7 +30,7 @@ jest.mock('../hooks/useSuggestionsApi', () => {
 describe('SearchSuggestions', () => {
   const wrapper = shallow(<SearchSuggestions query="jas"/>);
 
-  it('correct amount of list-items gets rendered according to fetched data', () => {
+  it('correct amount of list-items gets rendered according to mock data', () => {
     expect(wrapper.find('.search-suggestions__list').children()).toHaveLength(mockResponse.suggestions.length);
   });
 });

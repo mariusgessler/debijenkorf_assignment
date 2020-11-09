@@ -47,7 +47,7 @@ const SearchBar = () => {
         </div>
       </div>
       <div className={`search-suggestions ${active && searchTerm ? 'active' : ''}`}>
-        <SearchSuggestions className="example" query={searchTerm} setQuery={setInput} />
+        <SearchSuggestions query={searchTerm} setQuery={setInput} />
       </div>
     </div>
  );
